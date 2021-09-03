@@ -69,17 +69,23 @@ namespace mn {
 
 		template<typename T>
 		__host__ __device__  void empty();
-		template<>
-		__host__ __device__  void empty<float>() {
-			_max = MakePoint<float>::p(-FLT_MAX, -FLT_MAX, -FLT_MAX);
-			_min = MakePoint<float>::p(FLT_MAX, FLT_MAX, FLT_MAX);
-		}
+		// template<>
+		// __host__ __device__  void empty<float>() {
+		// 	_max = MakePoint<float>::p(-FLT_MAX, -FLT_MAX, -FLT_MAX);
+		// 	_min = MakePoint<float>::p(FLT_MAX, FLT_MAX, FLT_MAX);
+		// };
 		//template<>
 		//__host__ __device__  void empty<double>() {
 		//	_max = MakePoint<double>(-DBL_MAX, -DBL_MAX, -DBL_MAX);
 		//	_min = MakePoint<double>(DBL_MAX, DBL_MAX, DBL_MAX);
 		//}
 	};
+
+	// template<>
+	// 	__host__ __device__  void AABB::empty<float>() {
+	// 		_max = MakePoint<float>::p(-FLT_MAX, -FLT_MAX, -FLT_MAX);
+	// 		_min = MakePoint<float>::p(FLT_MAX, FLT_MAX, FLT_MAX);
+	// 	};
 
 	using BOX = AABB;
 }

@@ -6,5 +6,10 @@ include(BVH_DownloadExternal)
 # JSON
 if(NOT TARGET assimp)
  bvh_download_assimp()
- add_subdirectory(${BVH_EXTERNAL}/assimp EXCLUDE_FROM_ALL)
+ add_subdirectory(${BVH_EXTERNAL}/assimp) 
+endif()
+
+if(NOT TARGET gProximity)
+ bvh_download_gproximity()
+ include_directories(${BVH_EXTERNAL}/gProximity)
 endif()

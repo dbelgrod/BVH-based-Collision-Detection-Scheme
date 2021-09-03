@@ -3,7 +3,7 @@
 
 #include <thrust/device_vector.h>
 #include "setting/BvhSettings.h"
-#include "world/scene.h"
+#include "world/Scene.h"
 #include "BvhExtNode.h"
 #include "BvhIntNode.h"
 #include "LBvhKernels.cuh"

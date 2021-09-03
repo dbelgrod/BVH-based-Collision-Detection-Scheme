@@ -1,5 +1,6 @@
 #ifndef __CD_BENCHMARK_SETTINGS_H_
 #define __CD_BENCHMARK_SETTINGS_H_
+#include <string>
 
 #include <vector>
 

@@ -2,9 +2,13 @@ cmake_minimum_required(VERSION 3.8 FATAL_ERROR)
 # set(CMAKE_CUDA_COMPILER "C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\v10.1\\bin")
 project(BVH LANGUAGES CXX CUDA)
 
+find_package(CUDA  REQUIRED)
+include_directories("${CUDA_INCLUDE_DIRS}")
+
 set(DEPENDENCIES "${PROJECT_SOURCE_DIR}/Source/Project/Mine" )
 # include_directories("C:/ProgramData/NVIDIA Corporation/CUDA Samples/v10.1/common/inc")
 set (SAMPLE_HEADERS "/usr/local/cuda/samples/common/inc")
+
 include_directories(${DEPENDENCIES} ${SAMPLE_HEADERS})
 
 set(BVH_EXTERNAL "${CMAKE_CURRENT_SOURCE_DIR}/external")
@@ -53,3 +57,6 @@ set_target_properties( ${PROJECT_NAME}
 # Nvidia V100 -> compute_70
 # Nvidia 1080/1080Ti -> compute_61                 
 set_property(TARGET ${PROJECT_NAME} PROPERTY CUDA_ARCHITECTURES 61 70 75)
+
+# To have add_subdirectory take effect, need to link targets assimp -> B
+target_link_libraries(${PROJECT_NAME} assimp)

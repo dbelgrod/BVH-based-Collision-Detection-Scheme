@@ -22,7 +22,8 @@ namespace mn {
 			cudaFuncCache	cachePreference;
 			bool			waveFashion;		///< general fashion or loop fashion
 			int				maxOccBlockSize;	///< condition: use no shared memory
-			explicit CudaDevice::KernelConfig(KernelFunc f = nullptr, cudaFuncCache cacheConfig = cudaFuncCachePreferNone, bool isWave = false);
+			// explicit CudaDevice::KernelConfig(KernelFunc f = nullptr, cudaFuncCache cacheConfig = cudaFuncCachePreferNone, bool isWave = false);
+			KernelConfig(KernelFunc f = nullptr, cudaFuncCache cacheConfig = cudaFuncCachePreferNone, bool isWave = false);
 		};
 
 		static void registerKernel(const std::string& tag, KernelFunc f, cudaFuncCache cacheConfig = cudaFuncCachePreferL1, bool waveFashion = true);

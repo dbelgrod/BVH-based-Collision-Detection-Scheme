@@ -2,6 +2,7 @@
 #define __MAIN_H_
 
 #include <vector>
+#include <iostream>
 
 namespace mn {
 
