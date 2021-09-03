@@ -7,11 +7,11 @@
 #ifndef __LBVH_H_
 #define __LBVH_H_
 
-#include "setting\BvhSettings.h"
+#include "setting/BvhSettings.h"
 #include "LBvhRigid.h"
 #include "LBvhFixedDeformable.h"
-#include "system\CudaDevice\CudaDevice.h"
-#include "utility\CudaKernelUtils.cuh"
+#include "system/CudaDevice/CudaDevice.h"
+#include "utility/CudaKernelUtils.cuh"
 
 namespace mn {
 	

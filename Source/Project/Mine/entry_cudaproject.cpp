@@ -1,7 +1,7 @@
-#include "Frameworks\AppBase\Main.h"
+#include "Frameworks/AppBase/Main.h"
 
-#include "Frameworks\CudaProject\CudaProjectModuleRegister.h"	///< pick one application
-#include "Frameworks\AppBase\AppBase.h"
+#include "Frameworks/CudaProject/CudaProjectModuleRegister.h"	///< pick one application
+#include "Frameworks/AppBase/AppBase.h"
 
 bool mn::ModuleRegister::s_bInitializeRegistered = mn::ModuleRegister::RegisterInitialize();
 bool mn::ModuleRegister::s_bTerminateRegistered = mn::ModuleRegister::RegisterTerminate();

@@ -1,8 +1,8 @@
 #ifndef __SYSTEM_CUDA_DEVICE_H_
 #define __SYSTEM_CUDA_DEVICE_H_
 
-#include "base\Singleton.h"
-#include "utility\CudaExecutionPolicy.h"
+#include "base/Singleton.h"
+#include "utility/CudaExecutionPolicy.h"
 #include <unordered_map>
 #include <string>
 #include <driver_types.h>

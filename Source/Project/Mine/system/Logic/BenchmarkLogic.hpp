@@ -1,10 +1,10 @@
 #ifndef __BENCHMARK_LOGIC_HPP_
 #define __BENCHMARK_LOGIC_HPP_
 
-#include "base\Singleton.h"
-#include "setting\CDBenchmarkSettings.h"
-#include "collision\bvtt_front\BvttFrontLooseIntra.h"
-#include "collision\bvtt_front\BvttFrontLooseInter.h"
+#include "base/Singleton.h"
+#include "setting/CDBenchmarkSettings.h"
+#include "collision/bvtt_front/BvttFrontLooseIntra.h"
+#include "collision/bvtt_front/BvttFrontLooseInter.h"
 
 namespace mn {
 

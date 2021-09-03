@@ -1,6 +1,6 @@
 #include "Scene.h"
 #include <filesystem>
-#include "system\Logic\BenchmarkLogic.hpp"
+#include "system/Logic/BenchmarkLogic.hpp"
 
 namespace mn {
 

@@ -47,7 +47,7 @@
 #include <dxgi.h>
 #include <d3d11.h>
 #include <d3dx11.h>
-// #include <..\Samples\C++\Effects11\Inc\d3dx11effect.h>
+// #include <../Samples/C++/Effects11/Inc/d3dx11effect.h>
 
 // XInput includes
 #include <xinput.h>

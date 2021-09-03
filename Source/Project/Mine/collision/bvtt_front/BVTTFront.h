@@ -7,12 +7,12 @@
 #ifndef __BVTT_FRONT_H_
 #define __BVTT_FRONT_H_
 
-#include "setting\BvttFrontSettings.h"
+#include "setting/BvttFrontSettings.h"
 #include "BvttFrontLooseInter.h"
 #include "BvttFrontLooseIntra.h"
 #include "BvttFrontLooseKernels.cuh"
-#include "collision\narrow_phase\narrow_phase.cuh"
-#include "system\CudaDevice\CudaDevice.h"
+#include "collision/narrow_phase/narrow_phase.cuh"
+#include "system/CudaDevice/CudaDevice.h"
 
 namespace mn {
 

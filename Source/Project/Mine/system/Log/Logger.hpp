@@ -1,9 +1,9 @@
 #ifndef __LOGGER_HPP_
 #define __LOGGER_HPP_
 
-#include "base\Singleton.h"
-#include "utility\CudaTimer.hpp"
-#include "utility\Timer.hpp"
+#include "base/Singleton.h"
+#include "utility/CudaTimer.hpp"
+#include "utility/Timer.hpp"
 #include <iostream>
 #include <filesystem>
 
