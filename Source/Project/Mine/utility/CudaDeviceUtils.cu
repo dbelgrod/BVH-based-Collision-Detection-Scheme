@@ -52,31 +52,32 @@ namespace mn {
 		return true;
 	}
 
-	__device__ inline int lane_id(void) { return threadIdx.x % WARP_SIZE; }
-	__device__ inline int warp_bcast(int v, int leader) { return __shfl(v, leader); }
-	__device__ uint atomicAggInc(uint *ctr) {
-		uint mask = __ballot(1), leader, res;
-		// select the leader
-		leader = __ffs(mask) - 1;
-		// leader does the update
-		if (lane_id() == leader)
-			res = atomicAdd(ctr, __popc(mask));
-		// broadcast result
-		res = warp_bcast(res, leader);
-		// each thread computes its own value
-		return res + __popc(mask & ((1 << lane_id()) - 1));
-	}
+	// __device__ inline int lane_id(void) { return threadIdx.x % WARP_SIZE; }
+	// __device__ inline int warp_bcast(int v, int leader) { return __shfl(v, leader); }
+	// __device__ uint atomicAggInc(uint *ctr) {
+	// 	uint mask = __ballot(1), leader, res;
+	// 	// select the leader
+	// 	leader = __ffs(mask) - 1;
+	// 	// leader does the update
+	// 	if (lane_id() == leader)
+	// 		res = atomicAdd(ctr, __popc(mask));
+	// 	// broadcast result
+	// 	res = warp_bcast(res, leader);
+	// 	// each thread computes its own value
+	// 	return res + __popc(mask & ((1 << lane_id()) - 1));
+	// }
 	__device__ int atomicAggInc(int *ctr) {
-		int mask = __ballot(1), leader, res;
-		// select the leader
-		leader = __ffs(mask) - 1;
-		// leader does the update
-		if (lane_id() == leader)
-			res = atomicAdd(ctr, __popc(mask));
-		// broadcast result
-		res = warp_bcast(res, leader);
-		// each thread computes its own value
-		return res + __popc(mask & ((1 << lane_id()) - 1));
+		return atomicAdd(ctr, 1);
+		// int mask = __ballot(1), leader, res;
+		// // select the leader
+		// leader = __ffs(mask) - 1;
+		// // leader does the update
+		// if (lane_id() == leader)
+		// 	res = atomicAdd(ctr, __popc(mask));
+		// // broadcast result
+		// res = warp_bcast(res, leader);
+		// // each thread computes its own value
+		// return res + __popc(mask & ((1 << lane_id()) - 1));
 	}
 	
 	__device__ uint expandBits(uint v) {					///< Expands a 10-bit integer into 30 bits by inserting 2 zeros after each bit.

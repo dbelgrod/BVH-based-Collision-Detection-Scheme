@@ -9,7 +9,7 @@ namespace mn {
 	Scene::~Scene() {}
 
 	bool Scene::update() {
-		using namespace std::experimental::filesystem;
+		using namespace std::filesystem;
 		clearMeshes();
 		const std::string &inputFile = BenchmarkLogic::getInstance()->currentInputFile();
 		path inputTarget(inputFile);

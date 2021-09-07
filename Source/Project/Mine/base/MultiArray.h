@@ -7,8 +7,10 @@
 #ifndef __MULTI_ARRAY_H_
 #define __MULTI_ARRAY_H_
 
+
 #include "MultiObject.h"
 #include <array>
+
 
 namespace mn {
 
@@ -42,6 +44,9 @@ namespace mn {
 		void	initBufs(uint* elemNums, uchar span = 1);
 		void	destroyBufs();
 		void	resetNextSizes();
+		uchar 	_offset, _span;
+		/// objects
+		T*		d_objs;
 	private:
 		void	init(int) = delete;
 
@@ -81,9 +86,9 @@ namespace mn {
 
 	/// device access
 	template <typename T, uchar _total>
-	T** MultiArray<T, _total>::cbufs() { return cdp(0); }
+	T** MultiArray<T, _total>::cbufs() { return MultiArray<T, _total>::cdp(0); }
 	template <typename T, uchar _total>
-	T** MultiArray<T, _total>::nbufs() { return ndp(0); }
+	T** MultiArray<T, _total>::nbufs() { return MultiArray<T, _total>::ndp(0); }
 	template <typename T, uchar _total>
 	T* MultiArray<T, _total>::cbuf(uchar relID) { return _devAddrs[_offset + relID]; }
 	template <typename T, uchar _total>
@@ -121,7 +126,8 @@ namespace mn {
 		_span = span;
 		h_lens = new uint[_total];
 		_bufSizes = new uint[_span];
-		memcpy_s(_bufSizes, sizeof(uint) * _span, elemNums, sizeof(uint) * _span);
+		// memcpy_s(_bufSizes, sizeof(uint) * _span, elemNums, sizeof(uint) * _span);
+		memcpy(_bufSizes, elemNums, sizeof(uint) * _span);
 
 		checkCudaErrors(cudaMalloc((void**)&d_lens, sizeof(uint)*_total));
 		for (int i = 0; i < _total; i++)

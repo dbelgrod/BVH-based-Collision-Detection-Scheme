@@ -63,7 +63,7 @@ namespace mn {
 	inline void Logger::blankLine<TimerType::CPU>() { getInstance()->_kCPUTimer.blankLine(); }
 
 	inline void Logger::record(const std::string& filename) {
-		using namespace std::experimental::filesystem;
+		using namespace std::filesystem;
 		path outputTarget(filename);
 		if (outputTarget.empty()) return;
 		if (!exists(outputTarget.parent_path()))

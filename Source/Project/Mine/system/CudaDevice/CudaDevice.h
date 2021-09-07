@@ -6,6 +6,7 @@
 #include <unordered_map>
 #include <string>
 #include <driver_types.h>
+#include <collision/lbvh/BvhBV.h>
 
 namespace mn {
 
@@ -14,7 +15,10 @@ namespace mn {
 		CudaDevice();
 		~CudaDevice();
 
+		// const void (*KernelFunc)(int, const int*, mn::BvhBvCompletePort, mn::BvhBvCompletePort);
+		// using KernelFunc = void*;
 		using KernelFunc = const void*;
+
 		
 		struct KernelConfig {		///< static kernel attrib, could contain run-time debugger setting(error checking/ time recording etc...)
 			KernelFunc		func;

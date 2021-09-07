@@ -180,7 +180,7 @@ Logger::recordSection<TimerType::GPU>("sort_bvh");
 	void LBvhFixedDeformable::refit() {
 
 		cbvh().lvs().clearExtBvs(cbvh().extSize());
-#if MACRO_VERSION{
+#if MACRO_VERSION
 			configuredLaunch({ "RefitExtNodeARCSim", cbvh().primSize() }, refitExtNodeARCSim,
 				cbvh().primSize(), cbvh().lvs().portobj<0>(), getRawPtr(d_primMap), d_facesARCSim, d_bxsARCSim);
 #else

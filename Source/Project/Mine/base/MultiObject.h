@@ -53,6 +53,10 @@ namespace mn {
 	template<typename T, uchar _total>
 	class MultiObjectD {
 	public:
+		uchar 	_offset, _span;
+		/// objects
+		T*		d_objs;
+		
 		MultiObjectD() : _offset(0), _span(1) {
 			assert(_total % _span == 0);
 			checkCudaErrors(cudaMalloc((void**)&d_objs, sizeof(T) * _total));
@@ -78,11 +82,11 @@ namespace mn {
 		void	init(uchar span = 1) { _span = span; }
 		void	slide() { _offset = (_offset + _span) % _total; }
 
-	protected:
+	// protected:
 		/// scroll
-		uchar 	_offset, _span;
-		/// objects
-		T*		d_objs;
+		// uchar 	_offset, _span;
+		// /// objects
+		// T*		d_objs;
 		
 	};
 

@@ -16,7 +16,7 @@ namespace mn {
 		const aiScene* getMesh(int no = -1) {
 			if (no == -1) return _scenes.back();
 			else {
-				assert(no < _scenes.size());
+				// assert(no < _scenes.size());
 				return _scenes[no];
 			}
 		}

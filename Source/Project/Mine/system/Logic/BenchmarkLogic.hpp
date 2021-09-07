@@ -76,8 +76,8 @@ namespace mn {
 				default: frontOpt = BvttFrontLooseIntraMaintenance::KEEP;
 				}
 				break;
-			default:
-				__assume(false);
+			// default:
+			// 	__assume(false);
 			}
 			return std::make_pair(bvhOpt, frontOpt);
 		}
@@ -141,8 +141,8 @@ namespace mn {
 					}
 					break;
 				}
-			default:
-				__assume(false);
+			// default:
+			// 	__assume(false);
 				//__builtin_unreachable();
 			}
 			return std::make_pair(bvhOpt, frontOpt);

@@ -32,3 +32,10 @@ GIT_REPOSITORY https://github.com/robert-schmidtke/gProximity.git
 GIT_TAG        master
 )
 endfunction()
+
+function(bvh_download_irrXML)
+bvh_download_project(irrXML
+GIT_REPOSITORY https://github.com/hunter-packages/irrXML.git
+GIT_TAG        hunter
+)
+endfunction()
